@@ -1,0 +1,67 @@
+{
+  "name": "web-components-with-react",
+  "version": "0.0.0",
+  "description": "Using React.js inside web components",
+  "main": "dist/index.js",
+  "module": "lib/index.js",
+  "sideEffects": false,
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist && rimraf lib",
+    "build": "yarn clean && yarn build:js && yarn build:esm",
+    "build:js": "tsc --declaration true --sourceMap true --downlevelIteration --removeComments true",
+    "build:esm": "babel src --out-dir lib --extensions '.ts,.tsx' --source-maps --ignore '**/__tets__/**,**/*.test.tsx'",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "test": "yarn lint && jest --passWithNoTests"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.11",
+    "@types/react": "^16.8.12",
+    "@types/react-dom": "^16.8.3",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
+    "babel-jest": "^24.7.1",
+    "concurrently": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "jest": "^24.7.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "semantic-release": "^15.13.3",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newying61/web-components-with-react.git"
+  },
+  "files": [
+    "lib/**",
+    "module/**"
+  ],
+  "keywords": [
+    "web components",
+    "react"
+  ],
+  "author": "ShoM <newying61@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/newying61/web-components-with-react/issues"
+  },
+  "homepage": "https://github.com/newying61/web-components-with-react#readme"
+}
