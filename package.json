@@ -1,6 +1,6 @@
 {
   "name": "web-components-with-react",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Using React.js inside web components",
   "main": "dist/index.js",
   "module": "lib/index.js",
