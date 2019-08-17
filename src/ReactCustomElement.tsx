@@ -1,18 +1,19 @@
 import React, { ComponentType } from "react";
 import ReactDOM from "react-dom";
+import BaseReactCustomElement from './BaseReactCustomElement';
 
 const createReactCustomElement = (
   Component: ComponentType<any>,
   useShadowDOM: boolean = true
-): typeof HTMLElement => {
-  return class ReactCustomElement extends HTMLElement {
+): typeof BaseReactCustomElement => {
+  return class ReactCustomElement extends BaseReactCustomElement {
     /*
      * Mounting point for react App.
      * If shadow DOM is not polyfilled and usable, will be the shadowRoot.
      * If not, will be the component itself.
      *
      */
-    private renderRoot: Element|DocumentFragment;
+    protected renderRoot: Element|DocumentFragment;
 
     public constructor() {
       super();

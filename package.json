@@ -12,7 +12,7 @@
     "build:js": "tsc --declaration true --sourceMap true --downlevelIteration --removeComments true",
     "build:esm": "babel src --out-dir lib --extensions '.ts,.tsx' --source-maps --ignore '**/__tets__/**,**/*.test.tsx'",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "test": "yarn lint && jest --passWithNoTests"
+    "test": "yarn lint && jest"
   },
   "peerDependencies": {
     "react": "^16.8.6",
