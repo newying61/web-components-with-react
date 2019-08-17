@@ -51,8 +51,8 @@
     "url": "git+https://github.com/newying61/web-components-with-react.git"
   },
   "files": [
-    "lib/**",
-    "module/**"
+    "dist/**",
+    "lib/**"
   ],
   "keywords": [
     "web components",
