@@ -10,10 +10,16 @@ Package web-components-with-react is available on npm.
 yarn add web-components-with-react
 ```
 
-## Basic Usage
-Wrapp the React App with ReactCustomElement and then use customElements.define to create the web component.
+or
 
-Or inheriting the class from ReactCustomElement(App) and then define web component.
+```
+npm install web-components-with-react
+```
+
+## Basic Usage
+Wrap the React App with ReactCustomElement and then use customElements.define() to create the web component.
+
+Or inheriting the class from ReactCustomElement(App) and customize, then define web component.
 
 ```
 import { ReactCustomElement } from 'web-components-with-react';
@@ -22,12 +28,12 @@ import App from './App';
 customElements.define('test-app', ReactCustomElement(App));
 ```
 
-Then in the index.html file in public folder, simply use add the tag.
+In the index.html file in public folder, simply use the web component tag.
 ```
 <test-app></test-app>
 ```
 
-By default, the React App is rendered inside shadow DOM.
+The React App is rendered inside the web component (by default inside shadow DOM).
 
 ReactCustomElement parameters:
 - Component: React App component - without wrapping App inside \< \/\>.
@@ -50,7 +56,7 @@ const StyledApp = ({ renderRoot }) => {
 customElements.define('test-app', ReactCustomElement(StyledApp));
 ```
 
-createGlobalStyle from styled-components will render css tring inside renderRoot as well.
+createGlobalStyle from styled-components will render css string inside renderRoot (shadowRoot) as well.
 
 ### Render styles in shadow DOM
 Create a wrapper App like this:
@@ -68,8 +74,37 @@ const AppWithStyles = ({ renderRoot }) => {
 customElements.define('test-app', ReactCustomElement(AppWithStyles));
 ```
 
-### render app in light DOM
-Passing false to useShadwoDOM.
+### Pass host attributes value to React App and monitor attribute changes
+Use ReactCustomElementWithProps factory method to create a custom element for monitoring host attributes changes.
+
+The host attributes will be passed into React App as camelCased props (string type).
+
+Please use JSON.parse() etc. to convert the attribute value string to object.
+
+Each attribute change will trigger a React App re-render.
+
+Example:
+```
+import { ReactCustomElementWithProps } from 'web-components-with-react';
+import App from './App';
+
+customElements.define('test-app', ReactCustomElementWithProps(App, ['app-config', 'app-state']));
+```
+
+React App will have { renderRoot, appConfig, appState } as props.
+
+In the web component, specify attributes:
+```
+<test-app app-config='{"env":"dev"}' app-state='{"anyState":"stateValue"}'></test-app>
+```
+
+ReactCustomElementWithProps parameters:
+- Component: React App component - without wrapping App inside \< \/\>.
+- properties: string array. Attribute names to be monitored.
+- useShadowDOM: boolean, default to true
+
+### render App in light DOM
+Passing false to useShadwoDOM parameter.
 ```
 ReactCustomElement(App, false);
 ```
