@@ -1,20 +1,21 @@
 # web-components-with-react
-Render React App inside web components, supporting React Hooks.
+Render React App or any component inside web components, supporting React Hooks.
 
 By default the react App will be rendered inside shadow DOM.
 
+## Compared to other libs
+- Supporing React version with Hooks (16.9.0)
+- No extra lifecycle methods, just use React componentDidMount etc.
+- Re-render React component on attributes changes
+- Exporting the React web components for inheriting, define customElement whenever you like
+- Simple
+
 ## Installation
 Package web-components-with-react is available on npm.
-
-```
-yarn add web-components-with-react
-```
+`yarn add web-components-with-react`
 
 or
-
-```
-npm install web-components-with-react
-```
+`npm install web-components-with-react`
 
 ## Basic Usage
 Wrap the React App with ReactCustomElement and then use customElements.define() to create the web component.
