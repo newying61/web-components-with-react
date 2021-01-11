@@ -6,7 +6,7 @@ import createReactCustomElement from './ReactCustomElement';
 const createReactCustomElementWithProps = (
   Component: ComponentType<any>,
   properties: string[],
-  useShadowDOM: boolean = true
+  useShadowDOM = true
 ): typeof BaseReactCustomElement => {
   return class ReactCustomElementWithProps extends createReactCustomElement(Component, useShadowDOM) {
     protected props: any;

@@ -10,13 +10,12 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
+  "include": ["./src", "*.d.ts"],
   "exclude": [
     "node_modules",
     "coverage",
     "dist",
     "lib",
-    "src/**/*.test.ts",
-    "src/__tests__/**"
-  ],
-  "include": ["./src", "*.d.ts"]
+    "__tests__"
+  ]
 }

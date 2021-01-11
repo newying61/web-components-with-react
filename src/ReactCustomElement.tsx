@@ -4,7 +4,7 @@ import BaseReactCustomElement from './BaseReactCustomElement';
 
 const createReactCustomElement = (
   Component: ComponentType<any>,
-  useShadowDOM: boolean = true
+  useShadowDOM = true
 ): typeof BaseReactCustomElement => {
   return class ReactCustomElement extends BaseReactCustomElement {
     /*
